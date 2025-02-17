@@ -1,13 +1,13 @@
-p03.jpg	gnome with a flower and butterfly on a white background
-p06.jpg	a black and white drawing of a hand with a triangle and all seeing symbols
-ghouldfriend_p01.png	a close up of a black bat with big eyes and a big nose
-p02.jpg	cartoon illustration of a bee with a pot of honey
-p12.png	two wooden nutcrackers with pine cones and hollyconnets on them
-p10.jpg	there is a snowman with a hat and scarf holding a present
-p01.jpg	gnome with a butterfly on his head holding a flower pot
-p11.jpg	a close up of a toy figure of a cat with a cup
-p09.jpg	there is a snowman with a scarf and hat holding a red ribbon
-p08.jpg	a close up of a penguin with a christmas present on a calendar
-p04.jpg	a close up of a halloween candle holder with a witch hat on top
-p05.jpg	there are three pumpkins stacked on top of each other
-p07.jpg	a close up of a skeleton hand holding a skull on a stand
+p03.jpg	in the style of HFdesign, gnome with a flower and butterfly on a white background
+p06.jpg	in the style of HFdesign, a black and white drawing of a hand with a triangle and all seeing symbols
+ghouldfriend_p01.png	in the style of HFdesign, a close up of a black bat with big eyes and a big nose
+p02.jpg	in the style of HFdesign, cartoon illustration of a bee with a pot of honey
+p12.png	in the style of HFdesign, two wooden nutcrackers with pine cones and hollyconnets on them
+p10.jpg	in the style of HFdesign, there is a snowman with a hat and scarf holding a present
+p01.jpg	in the style of HFdesign, gnome with a butterfly on his head holding a flower pot
+p11.jpg	in the style of HFdesign, a close up of a toy figure of a cat with a cup
+p09.jpg	in the style of HFdesign, there is a snowman with a scarf and hat holding a red ribbon
+p08.jpg	in the style of HFdesign, a close up of a penguin with a christmas present on a calendar
+p04.jpg	in the style of HFdesign, a close up of a halloween candle holder with a witch hat on top
+p05.jpg	in the style of HFdesign, there are three pumpkins stacked on top of each other
+p07.jpg	in the style of HFdesign, a close up of a skeleton hand holding a skull on a stand

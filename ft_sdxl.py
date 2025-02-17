@@ -10,11 +10,12 @@ import wandb
 from torch.utils.data import Dataset, DataLoader
 
 class CustomDataset(Dataset):
-    def __init__(self, image_dir, caption_file, tokenizer_1, tokenizer_2, target_size=1024):
+    def __init__(self, image_dir, caption_file, tokenizer_1, tokenizer_2, target_size=1024, style_only=True):
         self.image_dir = image_dir
         self.target_size = target_size
         self.tokenizer_1 = tokenizer_1
         self.tokenizer_2 = tokenizer_2
+        self.style_only = style_only
         
         # Load captions
         self.image_caption_pairs = []
@@ -104,7 +105,8 @@ def train_stable_diffusion(
     learning_rate=1e-5,
     gradient_accumulation_steps=4,
     project_name="sdxl-finetuning",
-    run_name=None
+    run_name=None,
+    style_only=True
 ):
     # Initialize wandb
     wandb.init(
@@ -120,8 +122,8 @@ def train_stable_diffusion(
             "caption_file": caption_file
         }
     )
-
-    # Initialize accelerator without mixed precision
+    
+    # Initialize accelerator
     accelerator = Accelerator(
         gradient_accumulation_steps=gradient_accumulation_steps,
         mixed_precision=None
@@ -132,36 +134,51 @@ def train_stable_diffusion(
     print(f"Using device: {device}")
     wandb.config.update({"device": str(device)})
 
-    # Load base model
-    print("Loading SDXL model...")
+    # Load model
     pipeline = StableDiffusionXLPipeline.from_pretrained(
         "stabilityai/stable-diffusion-xl-base-1.0",
         torch_dtype=torch.float32,
         use_safetensors=True
-    ).to(device)
+    ).to(accelerator.device)
     
     # Get components
     tokenizer_1 = pipeline.tokenizer
     tokenizer_2 = pipeline.tokenizer_2
-    vae = pipeline.vae.to(device)
-    unet = pipeline.unet.to(device)
-    text_encoder_1 = pipeline.text_encoder.to(device)
-    text_encoder_2 = pipeline.text_encoder_2.to(device)
+    vae = pipeline.vae
+    unet = pipeline.unet
+    text_encoder_1 = pipeline.text_encoder
+    text_encoder_2 = pipeline.text_encoder_2
+
+    if style_only:
+        # Freeze everything except style-relevant layers in UNet
+        for name, param in unet.named_parameters():
+            # Unfreeze only specific layers that are important for style
+            if any(x in name for x in ['attn', 'norm']):
+                param.requires_grad = True
+            else:
+                param.requires_grad = False
+    else:
+        # Freeze VAE and text encoders
+        vae.requires_grad_(False)
+        text_encoder_1.requires_grad_(False)
+        text_encoder_2.requires_grad_(False)
     
-    # Freeze VAE and text encoders
-    vae.requires_grad_(False)
-    text_encoder_1.requires_grad_(False)
-    text_encoder_2.requires_grad_(False)
-    
-    # Create dataset and dataloader
-    dataset = CustomDataset(image_dir, caption_file, tokenizer_1, tokenizer_2)
+    # Create style-focused dataset
+    dataset = CustomDataset(image_dir, caption_file, tokenizer_1, tokenizer_2, style_only=style_only)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-    
-    # Setup optimizer
-    optimizer = torch.optim.AdamW(
-        unet.parameters(),
-        lr=learning_rate,
-    )
+
+    if style_only:
+        # Setup optimizer with lower learning rate for style fine-tuning
+        optimizer = torch.optim.AdamW(
+            filter(lambda p: p.requires_grad, unet.parameters()),
+            lr=learning_rate
+        )
+    else:
+        # Setup optimizer
+        optimizer = torch.optim.AdamW(
+            unet.parameters(),
+            lr=learning_rate,
+        )
     
     # Prepare for training
     unet, optimizer, dataloader = accelerator.prepare(
@@ -303,9 +320,11 @@ def train_stable_diffusion(
 
 if __name__ == "__main__":
     trained_pipeline = train_stable_diffusion(
-        image_dir="datasets/designs",
-        caption_file="datasets/caption.txt",
-        output_dir="fine_tuned_sdxl",
-        num_epochs=4,
-        project_name="sdxl-finetuning",
+        image_dir="/workspace/hongfan_imagegen/datasets/designs",
+        caption_file="/workspace/hongfan_imagegen/datasets/caption.txt",
+        output_dir="fine_tuned_sdxl_style_10epoch",
+        num_epochs=10,
+        project_name="sdxl-finetuning-style",
+        run_name='10epoch',
+        style_only=True,
     )
