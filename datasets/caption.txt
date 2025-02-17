@@ -1,13 +1,118 @@
-p03.jpg	in the style of HFdesign, gnome with a flower and butterfly on a white background
-p06.jpg	in the style of HFdesign, a black and white drawing of a hand with a triangle and all seeing symbols
+image11.png	in the style of HFdesign, three different colored pumpkins with black and pink designs on them
+image36.png	in the style of HFdesign, three tombstones with a skull and crossbone on them
+image23.png	in the style of HFdesign, a close up of a disco ball with a face on it
+image35.png	in the style of HFdesign, three different color skulls are in a holder with brushes
+image50.png	in the style of HFdesign, a close up of two tiered trays with spider webs
+image18.png	in the style of HFdesign, a close up of a coffin with a pink bow and a skull
+image54.png	in the style of HFdesign, a close up of a skeleton with a pink bow on its head
+image49.png	in the style of HFdesign, a close up of a ghost with a phone in its hand
+image26.png	in the style of HFdesign, there is a black heart shaped object with a pink bow on it
+image6.png	in the style of HFdesign, a close up of a small white ghost with a pink heart
+image51.png	in the style of HFdesign, a close up of a heart shaped plate with a spider web design
+image55.png	in the style of HFdesign, a close up of a figurine of a ghost riding a scooter
+image44.png	in the style of HFdesign, two different colored ghost heads with a heart on them
+image46.png	in the style of HFdesign, three halloween pumpkins with faces and hearts are shown in three different colors
+image3.png	in the style of HFdesign, a black and white photo of a mirror with a bow
+image34.png	in the style of HFdesign, there is a pink makeup brush holder with a pink tombstone
+image37.png	in the style of HFdesign, a close up of a heart shaped plate with a spider web on it
+image42.png	in the style of HFdesign, two pink and black bat shaped toys with hearts on them
+image15.png	in the style of HFdesign, two coffins with bows and skulls on them are decorated with pink and black ribbons
+image19.png	in the style of HFdesign, arafed skeleton in a coffin with pink frosting on it
+image27.png	in the style of HFdesign, a close up of a black pot with a bat design on it
+image13.png	in the style of HFdesign, two skulls with veils and bows on their heads
+image10.png	in the style of HFdesign, three black pumpkins with pearls on them sitting next to each other
+image43.png	in the style of HFdesign, two plates with different designs of bats and skulls on them
+image4.png	in the style of HFdesign, two black and pink witches hats with bows on them
+image45.png	in the style of HFdesign, there are two skulls with bows on their heads
+image22.png	in the style of HFdesign, there is a skull with a heart on it and a mirror ball
+image40.png	in the style of HFdesign, two mugs with the words good witch and bad witch on them
+image48.png	in the style of HFdesign, there is a spider web with a crown on it
+image30.png	in the style of HFdesign, there is a black vase with a spider web design on it
+image29.png	in the style of HFdesign, a close up of a cup with a bat design on it
+image62.png	in the style of HFdesign, a close up of a black and white box with bats on it
+image14.png	in the style of HFdesign, a close up of a pink glitter coffin with a ghost inside
+image9.png	in the style of HFdesign, a close up of two hands holding a heart with a spider web in the middle
+image2.png	in the style of HFdesign, there are two skulls with bows on their heads
+image59.png	in the style of HFdesign, there are two halloween decorations that are sitting next to each other
+image12.png	in the style of HFdesign, a close up of a mirror with a skeleton holding a pink bow
+image39.png	in the style of HFdesign, a white mug with a pink and black design on it
+image24.png	in the style of HFdesign, there is a black heart shaped box with a pink bow on top
+image20.png	in the style of HFdesign, a close up of a heart shaped balloon with a spider web on it
+image21.png	in the style of HFdesign, arafed skeleton hand with pink bow on black heart shaped plate
+image7.png	in the style of HFdesign, a close up of a ghost with a pink bow on its head
+image16.png	in the style of HFdesign, a close up of a cat with a skeleton on its back
+image38.png	in the style of HFdesign, a close up of a cup with a pink drip on it
+image17.png	in the style of HFdesign, a close up of a bat with a skeleton on it
+image41.png	in the style of HFdesign, a close up of a black pumpkin with a bat on it
 ghouldfriend_p01.png	in the style of HFdesign, a close up of a black bat with big eyes and a big nose
-p02.jpg	in the style of HFdesign, cartoon illustration of a bee with a pot of honey
-p12.png	in the style of HFdesign, two wooden nutcrackers with pine cones and hollyconnets on them
-p10.jpg	in the style of HFdesign, there is a snowman with a hat and scarf holding a present
-p01.jpg	in the style of HFdesign, gnome with a butterfly on his head holding a flower pot
-p11.jpg	in the style of HFdesign, a close up of a toy figure of a cat with a cup
-p09.jpg	in the style of HFdesign, there is a snowman with a scarf and hat holding a red ribbon
 p08.jpg	in the style of HFdesign, a close up of a penguin with a christmas present on a calendar
 p04.jpg	in the style of HFdesign, a close up of a halloween candle holder with a witch hat on top
 p05.jpg	in the style of HFdesign, there are three pumpkins stacked on top of each other
+p12.png	in the style of HFdesign, two wooden nutcrackers with pine cones and hollyconnets on them
+p11.jpg	in the style of HFdesign, a close up of a toy figure of a cat with a cup
+p10.jpg	in the style of HFdesign, there is a snowman with a hat and scarf holding a present
+p01.jpg	in the style of HFdesign, gnome with a butterfly on his head holding a flower pot
+p03.jpg	in the style of HFdesign, gnome with a flower and butterfly on a white background
+p09.jpg	in the style of HFdesign, there is a snowman with a scarf and hat holding a red ribbon
+p02.jpg	in the style of HFdesign, cartoon illustration of a bee with a pot of honey
 p07.jpg	in the style of HFdesign, a close up of a skeleton hand holding a skull on a stand
+p06.jpg	in the style of HFdesign, a black and white drawing of a hand with a triangle and all seeing symbols
+image11.png	three different colored pumpkins with black and pink designs on them, in the style of HFdesign
+image36.png	three tombstones with a skull and crossbone on them, in the style of HFdesign
+image23.png	a close up of a disco ball with a face on it, in the style of HFdesign
+image35.png	three different color skulls are in a holder with brushes, in the style of HFdesign
+image50.png	a close up of two tiered trays with spider webs, in the style of HFdesign
+image18.png	a close up of a coffin with a pink bow and a skull, in the style of HFdesign
+image54.png	a close up of a skeleton with a pink bow on its head, in the style of HFdesign
+image49.png	a close up of a ghost with a phone in its hand, in the style of HFdesign
+image26.png	there is a black heart shaped object with a pink bow on it, in the style of HFdesign
+image6.png	a close up of a small white ghost with a pink heart, in the style of HFdesign
+image51.png	a close up of a heart shaped plate with a spider web design, in the style of HFdesign
+image55.png	a close up of a figurine of a ghost riding a scooter, in the style of HFdesign
+image44.png	two different colored ghost heads with a heart on them, in the style of HFdesign
+image46.png	three halloween pumpkins with faces and hearts are shown in three different colors, in the style of HFdesign
+image3.png	a black and white photo of a mirror with a bow, in the style of HFdesign
+image34.png	there is a pink makeup brush holder with a pink tombstone, in the style of HFdesign
+image37.png	a close up of a heart shaped plate with a spider web on it, in the style of HFdesign
+image42.png	two pink and black bat shaped toys with hearts on them, in the style of HFdesign
+image15.png	two coffins with bows and skulls on them are decorated with pink and black ribbons, in the style of HFdesign
+image19.png	arafed skeleton in a coffin with pink frosting on it, in the style of HFdesign
+image27.png	a close up of a black pot with a bat design on it, in the style of HFdesign
+image13.png	two skulls with veils and bows on their heads, in the style of HFdesign
+image10.png	three black pumpkins with pearls on them sitting next to each other, in the style of HFdesign
+image43.png	two plates with different designs of bats and skulls on them, in the style of HFdesign
+image4.png	two black and pink witches hats with bows on them, in the style of HFdesign
+image45.png	there are two skulls with bows on their heads, in the style of HFdesign
+image22.png	there is a skull with a heart on it and a mirror ball, in the style of HFdesign
+image40.png	two mugs with the words good witch and bad witch on them, in the style of HFdesign
+image48.png	there is a spider web with a crown on it, in the style of HFdesign
+image30.png	there is a black vase with a spider web design on it, in the style of HFdesign
+image29.png	a close up of a cup with a bat design on it, in the style of HFdesign
+image62.png	a close up of a black and white box with bats on it, in the style of HFdesign
+image14.png	a close up of a pink glitter coffin with a ghost inside, in the style of HFdesign
+image9.png	a close up of two hands holding a heart with a spider web in the middle, in the style of HFdesign
+image2.png	there are two skulls with bows on their heads, in the style of HFdesign
+image59.png	there are two halloween decorations that are sitting next to each other, in the style of HFdesign
+image12.png	a close up of a mirror with a skeleton holding a pink bow, in the style of HFdesign
+image39.png	a white mug with a pink and black design on it, in the style of HFdesign
+image24.png	there is a black heart shaped box with a pink bow on top, in the style of HFdesign
+image20.png	a close up of a heart shaped balloon with a spider web on it, in the style of HFdesign
+image21.png	arafed skeleton hand with pink bow on black heart shaped plate, in the style of HFdesign
+image7.png	a close up of a ghost with a pink bow on its head, in the style of HFdesign
+image16.png	a close up of a cat with a skeleton on its back, in the style of HFdesign
+image38.png	a close up of a cup with a pink drip on it, in the style of HFdesign
+image17.png	a close up of a bat with a skeleton on it, in the style of HFdesign
+image41.png	a close up of a black pumpkin with a bat on it, in the style of HFdesign
+ghouldfriend_p01.png	a close up of a black bat with big eyes and a big nose, in the style of HFdesign
+p08.jpg	a close up of a penguin with a christmas present on a calendar, in the style of HFdesign
+p04.jpg	a close up of a halloween candle holder with a witch hat on top, in the style of HFdesign
+p05.jpg	there are three pumpkins stacked on top of each other, in the style of HFdesign
+p12.png	two wooden nutcrackers with pine cones and hollyconnets on them, in the style of HFdesign
+p11.jpg	a close up of a toy figure of a cat with a cup, in the style of HFdesign
+p10.jpg	there is a snowman with a hat and scarf holding a present, in the style of HFdesign
+p01.jpg	gnome with a butterfly on his head holding a flower pot, in the style of HFdesign
+p03.jpg	gnome with a flower and butterfly on a white background, in the style of HFdesign
+p09.jpg	there is a snowman with a scarf and hat holding a red ribbon, in the style of HFdesign
+p02.jpg	cartoon illustration of a bee with a pot of honey, in the style of HFdesign
+p07.jpg	a close up of a skeleton hand holding a skull on a stand, in the style of HFdesign
+p06.jpg	a black and white drawing of a hand with a triangle and all seeing symbols, in the style of HFdesign

@@ -301,13 +301,13 @@ def train_stable_diffusion(
             "epoch_loss": avg_loss,
         })
         
-        # Save checkpoint
-        if (epoch + 1) % 5 == 0:
-            checkpoint_dir = os.path.join(output_dir, f"checkpoint-{epoch+1}")
-            pipeline.save_pretrained(checkpoint_dir)
+        # # Save checkpoint
+        # if (epoch + 1) % 5 == 0:
+        #     checkpoint_dir = os.path.join(output_dir, f"checkpoint-{epoch+1}")
+        #     pipeline.save_pretrained(checkpoint_dir)
             
-            # Log model checkpoint to wandb
-            wandb.save(os.path.join(checkpoint_dir, "*"))
+        #     # Log model checkpoint to wandb
+        #     wandb.save(os.path.join(checkpoint_dir, "*"))
     
     # Save final model
     pipeline.save_pretrained(output_dir)
@@ -322,9 +322,9 @@ if __name__ == "__main__":
     trained_pipeline = train_stable_diffusion(
         image_dir="/workspace/hongfan_imagegen/datasets/designs",
         caption_file="/workspace/hongfan_imagegen/datasets/caption.txt",
-        output_dir="fine_tuned_sdxl_style_10epoch",
-        num_epochs=10,
+        output_dir="fine_tuned_sdxl_style_2",
+        num_epochs=4,
         project_name="sdxl-finetuning-style",
-        run_name='10epoch',
+        # run_name='',
         style_only=True,
     )
