@@ -1,4 +1,4 @@
-My repo to explore fine-tuning image generation models for art styles
+My repo to explore customised image generation models for specific retailer styles
 
 Installation:
 ```
