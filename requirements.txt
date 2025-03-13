@@ -13,3 +13,6 @@ datasets
 wandb
 matplotlib
 bitsandbytes
+ftfy
+regex
+tqdm
