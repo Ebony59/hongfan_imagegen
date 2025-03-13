@@ -16,3 +16,4 @@ bitsandbytes
 ftfy
 regex
 tqdm
+scikit-learn

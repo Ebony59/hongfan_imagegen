@@ -27,10 +27,15 @@ def load_product_data(data_dir):
     # Combine all category data into one DataFrame
     return pd.concat(all_data, ignore_index=True)
 
-def get_clip_embedding(image_path, category, title):
+def request_image(image_path):
     response = requests.get(image_path, timeout=10)
     response.raise_for_status()
     image = Image.open(BytesIO(response.content)).convert("RGB")
+
+    return image
+
+def get_clip_embedding(image_path, category, title):
+    image = request_image(image_path)
     
     # Preprocess image
     image = PREPROCESS(image).unsqueeze(0).to(DEVICE)

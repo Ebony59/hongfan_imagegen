@@ -3,7 +3,7 @@ My repo to explore customised image generation models for specific retailer styl
 Installation:
 ```
 pip install -r requirements.txt
-git+https://github.com/openai/CLIP.git
+pip install git+https://github.com/openai/CLIP.git
 ```
 
 Roadmap:
