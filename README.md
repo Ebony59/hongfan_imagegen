@@ -1,6 +1,10 @@
 My repo to explore fine-tuning image generation models for art styles
 
+Installation:
+```
+pip install -r requirements.txt
 git+https://github.com/openai/CLIP.git
+```
 
 Roadmap:
 - Scraping scripts from retailer's website (☑️)
