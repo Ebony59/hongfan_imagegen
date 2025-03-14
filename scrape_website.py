@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
         start_index = 0
         size = 24
-        max_batch = 500
+        max_batch = 50
         
         data = []
         for i in tqdm(range(max_batch)):
