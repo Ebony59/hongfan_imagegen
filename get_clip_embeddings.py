@@ -1,13 +1,11 @@
-import os
 import pandas as pd
 import torch
 import clip
-import requests
 import numpy as np
-from PIL import Image
 from torchvision import transforms
 from tqdm import tqdm
-from io import BytesIO
+
+from utils.retailer_utils import load_product_data, request_image
 
 # Load CLIP model
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -15,24 +13,6 @@ MODEL, PREPROCESS = clip.load("ViT-B/32", device=DEVICE)
 
 DATA_DIR = "/workspace/hongfan_imagegen/data/athome"
 
-def load_product_data(data_dir):
-    all_data = []
-    for file in os.listdir(data_dir):
-        if file.endswith(".csv"):
-            file_path = os.path.join(data_dir, file)
-            df = pd.read_csv(file_path)
-            df['category'] = file.split('.')[0]
-            all_data.append(df)
-    
-    # Combine all category data into one DataFrame
-    return pd.concat(all_data, ignore_index=True)
-
-def request_image(image_path):
-    response = requests.get(image_path, timeout=10)
-    response.raise_for_status()
-    image = Image.open(BytesIO(response.content)).convert("RGB")
-
-    return image
 
 def get_clip_embedding(image_path, category, title):
     image = request_image(image_path)

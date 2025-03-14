@@ -14,6 +14,16 @@ BASE_URL = 'https://www.athome.com/'
 CATEGORIES = ['statues-sculptures', 'outdoor-wall-decor', 'yard-art', 'outdoor-fountains', 'wind-chimes', 
               'vases', 'sculptures-figurines', 'candle-holders', 'decorative-plates-bowls-trays', 'candle-holders']
 
+def scrape_large_image_url(url):
+    response = requests.get(url, headers=HEADERS)
+    if response.status_code != 200:
+        print(f"Failed to retrieve page: {url}")
+        return "No Image Found"
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    img_url = soup.find("a", class_="MagicZoom")['href']
+    return img_url
+
 def scrape_product_page(url):
     response = requests.get(url, headers=HEADERS)
     if response.status_code != 200:
@@ -26,10 +36,10 @@ def scrape_product_page(url):
     for product in soup.find_all("div", class_='plp-tile-container'):
         try:
             title = product.find("h3", class_='pdp-link pt-name').text.strip()
-            img_tag = product.find("img", class_="tile-image")
-            img_url = img_tag["src"] if img_tag else "No Image Found"
             link = product.find("a", class_="product-image")["href"]
             full_link = BASE_URL + link if link.startswith("/") else link
+
+            img_url = scrape_large_image_url(full_link)
             
             products.append({
                 "title": title,
@@ -49,9 +59,19 @@ if __name__ == '__main__':
     for category in CATEGORIES:
         print(f"Scraping category: {category}")
         category_url = f'{BASE_URL}{category}/'
-        url = get_scrape_url(category_url, size=100)
-        data = scrape_product_page(url)
-    
+
+        start_index = 0
+        size = 48
+        max_batch = 1
+        
+        data = []
+        for i in tqdm(range(max_batch)):
+            url = get_scrape_url(category_url, start_index, size)
+            data += scrape_product_page(url)
+            if len(data) < size:
+                break
+            start_index += size
+        
         df = pd.DataFrame(data)
         df.to_csv(f'/workspace/hongfan_imagegen/data/athome/{category}.csv', index=False)
 

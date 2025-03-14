@@ -5,6 +5,10 @@ import os
 from pathlib import Path
 from torch.utils.data import Dataset, DataLoader
 
+from utils.retailer_utils import load_product_data
+
+DATA_DIR = 'workspace/hongfan_imagegen/data/athome'
+
 def generate_caption(image_path):
     image = Image.open(image_path).convert("RGB")
     inputs = processor(images=image, return_tensors="pt")

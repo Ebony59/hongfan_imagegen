@@ -8,7 +8,7 @@ pip install git+https://github.com/openai/CLIP.git
 
 Roadmap:
 - Scraping scripts from retailer's website (☑️)
-- Use CLIP to get image and text embeddings
+- Use CLIP to get image and text embeddings (☑️)
 - SFT on retailer's products
 - Train reward model using labelled dataset
 - RLHF
