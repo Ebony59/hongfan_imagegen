@@ -2,12 +2,15 @@ import torch
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 import os
+import pandas as pd
 from pathlib import Path
 from torch.utils.data import Dataset, DataLoader
 
 from utils.retailer_utils import load_product_data
 
-DATA_DIR = 'workspace/hongfan_imagegen/data/athome'
+import pathlib
+REPO_PATH = pathlib.Path(__file__).resolve().parent
+RETAILER = 'athome'
 
 def generate_caption(image_path):
     image = Image.open(image_path).convert("RGB")
@@ -20,22 +23,35 @@ if __name__ == "__main__":
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to("cuda")
 
-    image_folder = "/workspace/hongfan_imagegen/datasets/retailers/athome/"
-    caption_file = "/workspace/hongfan_imagegen/datasets/retailers/athome/caption.txt"
+    image_folder = os.path.join(REPO_PATH, 'datasets', 'retailers', RETAILER)
+    data_dir = os.path.join(REPO_PATH, 'data', RETAILER)
 
-    if Path(caption_file).is_file():
-        os.remove(caption_file)
-
-    for style in os.listdir(image_folder):
-        if ".ipynb_checkpoints" in style:
+    for category in os.listdir(image_folder):
+        csv_file = os.path.join(data_dir, f'{category}.csv')
+        df = pd.read_csv(csv_file)
+        
+        if ".ipynb_checkpoints" in category:
             continue
 
-        style_folder = os.path.join(image_folder, style)
-        for img in os.listdir(style_folder):
-            if ".ipynb_checkpoints" in img:
+        category_folder = os.path.join(image_folder, category)
+        for img in os.listdir(category_folder):
+            if ".ipynb_checkpoints" in img or '.txt' in img:
                 continue
-            caption = generate_caption(os.path.join(style_folder, img))
-            print(f"{style_folder}/{img}: {caption}")
-            caption = caption + f". In the style of HF{style}"
-            with open(caption_file, "a") as f:
-                f.write(f'{style_folder}/{img}\t{caption}\n')
+                
+            try:
+                caption = generate_caption(os.path.join(category_folder, img))
+            except Exception as e:
+                print(f'Error when processing {category}/{img}: {e}')
+                continue
+                
+            print(f"{category}/{img}: {caption}")
+
+            img_name = img.split('.')[0]
+            row = int(img_name.split('_')[1])
+            title = df.loc[row, 'title']
+            
+            caption = f'{title}, {caption}, under category {category}'
+            caption_file = os.path.join(category_folder, f'{img_name}.txt')
+
+            with open(caption_file, "w") as f:
+                f.write(caption)
