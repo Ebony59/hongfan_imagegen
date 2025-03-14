@@ -10,7 +10,7 @@ from utils.config import HEADERS
 from utils.retailer_utils import fetch_url
 
 BASE_URL = 'https://www.athome.com/'
-CATEGORIES = ['decorative-plates-bowls-trays', 'sculptures-figurines', 'vases', 'decorative-glass-balls']
+CATEGORIES = ['decorative-plates-bowls-trays', 'sculptures-figurines', 'decorative-glass-balls']
 
 def scrape_large_image_url(url):
     response = fetch_url(url, headers=HEADERS)
@@ -30,7 +30,10 @@ def scrape_product_page(url):
     soup = BeautifulSoup(response.text, "html.parser")
     products = []
 
-    for product in soup.find_all("div", class_='plp-tile-container'):
+    containers = soup.find_all("div", class_='plp-tile-container')
+    print(len(containers))
+
+    for product in containers:
         try:
             title_element = product.find("h3", class_='pdp-link pt-name')
             if title_element is None:
@@ -50,7 +53,7 @@ def scrape_product_page(url):
             print('Error:', e)
             continue
     
-    return products
+    return products, len(containers)
 
 def get_scrape_url(category_url, start_index=0, size=100):
     return f'{category_url}?nav=top_nav&start={start_index}&sz={size}'
@@ -68,9 +71,9 @@ if __name__ == '__main__':
         data = []
         for i in tqdm(range(max_batch)):
             url = get_scrape_url(category_url, start_index, size)
-            products = scrape_product_page(url)
+            products, length = scrape_product_page(url)
             data += products
-            if len(products) < size:
+            if length < size:
                 break
             start_index += size
         
