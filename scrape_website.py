@@ -69,8 +69,9 @@ if __name__ == '__main__':
         data = []
         for i in tqdm(range(max_batch)):
             url = get_scrape_url(category_url, start_index, size)
-            data += scrape_product_page(url)
-            if len(data) < size:
+            products = scrape_product_page(url)
+            data += products
+            if len(products) < size:
                 break
             start_index += size
         

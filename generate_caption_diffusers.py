@@ -6,6 +6,9 @@ import json
 from pathlib import Path
 from torch.utils.data import Dataset, DataLoader
 
+import pathlib
+REPO_PATH = pathlib.Path(__file__).resolve().parent
+
 def generate_caption(image_path):
     image = Image.open(image_path).convert("RGB")
     inputs = processor(images=image, return_tensors="pt")
@@ -17,7 +20,7 @@ if __name__ == "__main__":
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to("cuda")
 
-    image_folder = "/workspace/hongfan_imagegen/datasets/designs/"
+    image_folder = os.path.join(REPO_PATH, 'datasets', 'retailers', 'athome')
     metadata = []
     metadata_path = os.path.join(image_folder,'metadata.jsonl')
 

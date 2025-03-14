@@ -20,8 +20,8 @@ if __name__ == "__main__":
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
     model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large").to("cuda")
 
-    image_folder = "/workspace/hongfan_imagegen/datasets/designs/"
-    caption_file = "/workspace/hongfan_imagegen/datasets/caption.txt"
+    image_folder = "/workspace/hongfan_imagegen/datasets/retailers/athome/"
+    caption_file = "/workspace/hongfan_imagegen/datasets/retailers/athome/caption.txt"
 
     if Path(caption_file).is_file():
         os.remove(caption_file)
