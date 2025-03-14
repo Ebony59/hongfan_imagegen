@@ -12,8 +12,7 @@ HEADERS = {
 }
 
 BASE_URL = 'https://www.athome.com/'
-CATEGORIES = ['statues-sculptures', 'outdoor-wall-decor', 'yard-art', 'outdoor-fountains', 'wind-chimes', 
-              'vases', 'sculptures-figurines', 'candle-holders', 'decorative-plates-bowls-trays']
+CATEGORIES = ['decorative-plates-bowls-trays', 'sculptures-figurines', 'vases', 'decorative-glass-balls']
 
 def scrape_large_image_url(url):
     response = requests.get(url, headers=HEADERS)
