@@ -6,6 +6,8 @@ import pathlib
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
+from utils.retailer_utils import fetch_url
+
 # Define headers to mimic a real browser request
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
@@ -15,9 +17,9 @@ BASE_URL = 'https://www.athome.com/'
 CATEGORIES = ['decorative-plates-bowls-trays', 'sculptures-figurines', 'vases', 'decorative-glass-balls']
 
 def scrape_large_image_url(url):
-    response = requests.get(url, headers=HEADERS)
-    if response.status_code != 200:
-        print(f"Failed to retrieve page: {url}")
+    response = fetch_url(url, headers=HEADERS)
+
+    if not response:
         return "No Image Found"
 
     soup = BeautifulSoup(response.text, "html.parser")
@@ -25,9 +27,8 @@ def scrape_large_image_url(url):
     return img_url
 
 def scrape_product_page(url):
-    response = requests.get(url, headers=HEADERS)
-    if response.status_code != 200:
-        print(f"Failed to retrieve page: {url}")
+    response = fetch_url(url, headers=HEADERS)
+    if not response:
         return []
 
     soup = BeautifulSoup(response.text, "html.parser")

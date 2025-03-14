@@ -4,24 +4,27 @@ import requests
 from tqdm import tqdm
 
 import pathlib
+
+from utils.retailer_utils import fetch_url
+
 REPO_PATH = pathlib.Path(__file__).resolve().parent
+RETAILER = 'athome'
 
 def download_image(url, save_path):
-    try:
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        with open(save_path, 'wb') as f:
-            f.write(response.content)
-        return True
-    except Exception as e:
-        print(f"Failed to download {url}: {e}")
+    response = fetch_url(url)
+    
+    if not response:
         return False
+
+    with open(save_path, 'wb') as f:
+        f.write(response.content)
+    return True
 
 
 if __name__ == "__main__":
     # Define paths
-    data_dir = os.path.join(REPO_PATH, 'data', 'athome')
-    output_dir = os.path.join(REPO_PATH, 'datasets', 'retailers', 'athome')
+    data_dir = os.path.join(REPO_PATH, 'data', RETAILER)
+    output_dir = os.path.join(REPO_PATH, 'datasets', 'retailers', RETAILER)
     
     os.makedirs(output_dir, exist_ok=True)
 
