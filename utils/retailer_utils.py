@@ -1,6 +1,7 @@
 import os
 import requests
 import pandas as pd
+import time
 
 from PIL import Image
 from io import BytesIO
@@ -21,13 +22,13 @@ def fetch_url(url, headers=None, max_retries=5):
     for attempt in range(max_retries):
         try:
             if headers:
-                response = requests.get(url, headers=HEADERS)
+                response = requests.get(url, headers=headers)
             else:
                 response = requests.get(url)
             if response.status_code == 200:
                 return response
             else:
-                print(f"Attempt {attempt + 1}/{max_retries} failed with status {response.status_code}")
+                print(f"Attempt {attempt + 1}/{max_retries} with status {response.status_code}")
         except Exception as e:
             print(f"Attempt {attempt + 1}/{max_retries} encountered an error: {e}")
 
