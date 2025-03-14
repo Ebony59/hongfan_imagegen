@@ -1,6 +1,7 @@
 import os
 import requests
 import pandas as pd
+import time
 
 from PIL import Image
 from io import BytesIO
@@ -17,9 +18,31 @@ def load_product_data(data_dir):
     # Combine all category data into one DataFrame
     return pd.concat(all_data, ignore_index=True)
 
+def fetch_url(url, headers=None, max_retries=5):
+    for attempt in range(max_retries):
+        try:
+            if headers:
+                response = requests.get(url, headers=headers)
+            else:
+                response = requests.get(url)
+            if response.status_code == 200:
+                return response
+            else:
+                print(f"Attempt {attempt + 1}/{max_retries} with status {response.status_code}")
+        except Exception as e:
+            print(f"Attempt {attempt + 1}/{max_retries} encountered an error: {e}")
+
+        time.sleep(2 ** attempt)
+
+    print(f"Failed to retrieve page after {max_retries} attempts: {url}")
+    return None
+
 def request_image(image_path):
-    response = requests.get(image_path, timeout=10)
-    response.raise_for_status()
+    response = fetch_url(image_path)
+
+    if not response:
+        return False
+
     image = Image.open(BytesIO(response.content)).convert("RGB")
 
     return image
