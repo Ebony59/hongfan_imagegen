@@ -10,7 +10,7 @@ from utils.config import HEADERS
 from utils.retailer_utils import fetch_url
 
 BASE_URL = 'https://www.athome.com/'
-CATEGORIES = ['decorative-plates-bowls-trays', 'sculptures-figurines', 'decorative-glass-balls']
+CATEGORIES = ['candle-holders']
 
 def scrape_large_image_url(url):
     response = fetch_url(url, headers=HEADERS)
@@ -31,7 +31,6 @@ def scrape_product_page(url):
     products = []
 
     containers = soup.find_all("div", class_='plp-tile-container')
-    print(len(containers))
 
     for product in containers:
         try:
