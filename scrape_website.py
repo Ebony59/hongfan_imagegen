@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import os
+import pathlib
 
 from bs4 import BeautifulSoup
 from tqdm import tqdm
@@ -12,7 +13,7 @@ HEADERS = {
 
 BASE_URL = 'https://www.athome.com/'
 CATEGORIES = ['statues-sculptures', 'outdoor-wall-decor', 'yard-art', 'outdoor-fountains', 'wind-chimes', 
-              'vases', 'sculptures-figurines', 'candle-holders', 'decorative-plates-bowls-trays', 'candle-holders']
+              'vases', 'sculptures-figurines', 'candle-holders', 'decorative-plates-bowls-trays']
 
 def scrape_large_image_url(url):
     response = requests.get(url, headers=HEADERS)
@@ -56,13 +57,14 @@ def get_scrape_url(category_url, start_index=0, size=100):
     return f'{category_url}?nav=top_nav&start={start_index}&sz={size}'
 
 if __name__ == '__main__':
+    repopath = pathlib.Path(__file__).resolve().parent
     for category in CATEGORIES:
         print(f"Scraping category: {category}")
         category_url = f'{BASE_URL}{category}/'
 
         start_index = 0
-        size = 48
-        max_batch = 1
+        size = 24
+        max_batch = 500
         
         data = []
         for i in tqdm(range(max_batch)):
@@ -73,6 +75,7 @@ if __name__ == '__main__':
             start_index += size
         
         df = pd.DataFrame(data)
-        df.to_csv(f'/workspace/hongfan_imagegen/data/athome/{category}.csv', index=False)
+        out_csv = os.path.join(repopath, 'data', 'athome', f'{category}.csv')
+        df.to_csv(out_csv, index=False)
 
     print("scraping completed!")
