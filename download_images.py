@@ -29,6 +29,7 @@ if __name__ == "__main__":
     os.makedirs(output_dir, exist_ok=True)
 
     csv_files = [f for f in os.listdir(data_dir) if f.endswith(".csv")]
+    print(csv_files)
 
     for csv_file in csv_files:
         category = csv_file.replace('.csv', '')
@@ -37,6 +38,11 @@ if __name__ == "__main__":
         os.makedirs(category_dir, exist_ok=True)
 
         df = pd.read_csv(os.path.join(data_dir, csv_file))
+        existing_images = [f for f in os.listdir(data_dir) if f.endswith(".csv")]
+        
+        if len(existing_images) == len(df):
+            print(f'no updates to {category}')
+            continue
 
         for i, url in tqdm(enumerate(df["img_url"]), desc=f"Processing {category}", total=len(df)):
             save_path = os.path.join(category_dir, f"image_{i}.jpg")
